@@ -111,7 +111,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                                 <button
                                     onClick={async () => {
                                         try {
-                                            await axios.put(`https://gestortareasbackend.onrender.com/tareas/${tarea.id}`, {
+                                            await axios.put(`https://gestortareasbackend.onrender.com/api/tareas/${tarea.id}`, {
                                                 titulo,
                                                 descripcion,
                                                 fechaLimite,
@@ -137,7 +137,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                         <button
                             onClick={async () => {
                                 try {
-                                    await axios.put(`https://gestortareasbackend.onrender.com/${tarea.id}`, {
+                                    await axios.put(`https://gestortareasbackend.onrender.com/api/tareas/${tarea.id}`, {
                                         titulo,
                                         descripcion,
                                         fechaLimite,
