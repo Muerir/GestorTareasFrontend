@@ -5,7 +5,7 @@ import TareaModal from '../components/TareaModal';
 
 const Dashboard = () => {
     const [tareas, setTareas] = useState([]);
-    const [filtros, setFiltros] = useState({ estado: '', busqueda: '', fechaInicio: '', fechaFin: '' });
+    const [filtros, setFiltros] = useState({ estado: '', busqueda: '', desde: '', hasta: '' });
     const [modalAbierto, setModalAbierto] = useState(false);
     const [tareaSeleccionada, setTareaSeleccionada] = useState(null);
     const [modoVer, setModoVer] = useState(false);
@@ -103,14 +103,14 @@ const Dashboard = () => {
                     <input
                         type="date"
                         value={filtros.fechaInicio}
-                        onChange={(e) => setFiltros({ ...filtros, fechaInicio: e.target.value })}
+                        onChange={(e) => setFiltros({ ...filtros, desde: e.target.value })}
                         style={styles.input}
                     />
                     <label>Hasta:</label>
                     <input
                         type="date"
                         value={filtros.fechaFin}
-                        onChange={(e) => setFiltros({ ...filtros, fechaFin: e.target.value })}
+                        onChange={(e) => setFiltros({ ...filtros, hasta: e.target.value })}
                         style={styles.input}
                     />
                     <button onClick={obtenerTareas} style={styles.botonBuscar}>Buscar</button>

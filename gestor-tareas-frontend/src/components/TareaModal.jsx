@@ -37,7 +37,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                 const nuevaTarea = {
                     titulo,
                     descripcion,
-                    fechaLimite,
+                    fechaLimite: fechaLimite === '' ? null : fechaLimite
                 };
 
                 // Si la tarea es pendiente, podemos avanzar a "en progreso"
@@ -53,7 +53,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                 await axios.post('http://localhost:5000/api/tareas', {
                     titulo,
                     descripcion,
-                    fechaLimite
+                    fechaLimite: fechaLimite === '' ? null : fechaLimite
                 }, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
@@ -78,6 +78,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                     placeholder="Título"
                     value={titulo}
                     onChange={(e) => setTitulo(e.target.value)}
+                    disabled={modoVer}
                     style={styles.input}
                 />
                 <label>Descripción:</label>
@@ -85,6 +86,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                     placeholder="Descripción"
                     value={descripcion}
                     onChange={(e) => setDescripcion(e.target.value)}
+                    disabled={modoVer}
                     style={styles.textarea}
                 />
                 <label>Fecha límite:</label>
@@ -92,6 +94,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                     type="date"
                     value={fechaLimite}
                     onChange={(e) => setFechaLimite(e.target.value)}
+                    disabled={modoVer}
                     style={styles.input}
                 />
                 {mensaje && <p style={{ color: 'red', marginTop: '10px' }}>{mensaje}</p>}
