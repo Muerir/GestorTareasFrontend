@@ -45,12 +45,12 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                     nuevaTarea.estado = 'en progreso';
                 }
 
-                await axios.put(`http://localhost:5000/api/tareas/${tarea.id}`, nuevaTarea, {
+                await axios.put(`https://gestortareasbackend.onrender.com/api/tareas/${tarea.id}`, nuevaTarea, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } else {
                 // CREAR NUEVA
-                await axios.post('http://localhost:5000/api/tareas', {
+                await axios.post('https://gestortareasbackend.onrender.com/api/tareas', {
                     titulo,
                     descripcion,
                     fechaLimite: fechaLimite === '' ? null : fechaLimite
@@ -111,7 +111,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                                 <button
                                     onClick={async () => {
                                         try {
-                                            await axios.put(`http://localhost:5000/api/tareas/${tarea.id}`, {
+                                            await axios.put(`https://gestortareasbackend.onrender.com/tareas/${tarea.id}`, {
                                                 titulo,
                                                 descripcion,
                                                 fechaLimite,
@@ -137,7 +137,7 @@ const TareaModal = ({ tarea, onClose, onRefresh, modoVer = false }) => {
                         <button
                             onClick={async () => {
                                 try {
-                                    await axios.put(`http://localhost:5000/api/tareas/${tarea.id}`, {
+                                    await axios.put(`https://gestortareasbackend.onrender.com/${tarea.id}`, {
                                         titulo,
                                         descripcion,
                                         fechaLimite,
