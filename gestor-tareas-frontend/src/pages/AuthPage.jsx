@@ -16,7 +16,7 @@ const AuthPage = () => {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/usuario/login', {
+            const res = await axios.post('https://gestortareasbackend.onrender.com/api/usuario/login', {
                 correo,
                 contrasena
             });
@@ -35,7 +35,7 @@ const AuthPage = () => {
 
     const handleRegistro = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/usuario/registro', {
+            const res = await axios.post('https://gestortareasbackend.onrender.com/api/usuario/registro', {
                 nombre: nuevoNombre,
                 correo: nuevoCorreo,
                 contrasena: nuevaContrasena
