@@ -22,7 +22,7 @@ const Dashboard = () => {
 
     const obtenerTareas = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/tareas', {
+            const res = await axios.get('https://gestortareasbackend.onrender.com/api/tareas', {
                 headers: { Authorization: `Bearer ${token}` },
                 params: filtros
             });
@@ -34,7 +34,7 @@ const Dashboard = () => {
 
     const eliminarTarea = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/tareas/${id}`, {
+            await axios.delete(`https://gestortareasbackend.onrender.com/api/tareas/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             obtenerTareas();
@@ -57,7 +57,7 @@ const Dashboard = () => {
     const abrirModalVer = async (tarea) => {
         if (tarea.estado === 'pendiente') {
             try {
-                await axios.put(`http://localhost:5000/api/tareas/${tarea.id}`, {
+                await axios.put(`https://gestortareasbackend.onrender.com/api/tareas/${tarea.id}`, {
                     titulo: tarea.titulo,
                     descripcion: tarea.descripcion,
                     fechaLimite: tarea.fechaLimite,
